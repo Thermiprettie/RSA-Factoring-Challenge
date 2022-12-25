@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+import sys
+from primes import factors
+if __name__ == "__main__":
+        if len(sys.argv) != 2:
+                exit(1)
+        lpi = []
+        with open(sys.argv[1], 'r') as file:
+                lines = file.readlines()
+                for line in lines:
+                        lpi.append(int(line))
+                for i in lpi:
+                        j = factors(i)
+                        if i % 2 == 0:
+                            j = 2
+                        if i % 3 == 0:
+                            j = 3
+                        if i % 5 == 0:
+                            j = 5
+                        if i % 7 == 0:
+                            j = 7
+                        print("{}={:d}*{}".format(i,i//j,j))
